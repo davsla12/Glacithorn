@@ -92,7 +92,7 @@ int SMain(){
     return 0;
 }
 
-int update_scr(){
+int screen_update(){
     for (auto &p : Scanes) {
         werase(p->window);
         box(p->window,0,0);

@@ -29,5 +29,5 @@ void screen_delete();
 void CreateWin(Scane* scane,int rows,int collums,int y,int x);
 int SInput();
 int SMain();
-int update_scr();
+int screen_update();
 #endif

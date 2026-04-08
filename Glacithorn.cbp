@@ -37,6 +37,9 @@
 		</Compiler>
 		<Unit filename="Random.cpp" />
 		<Unit filename="Random.h" />
+		<Unit filename="Scanes/Hlavni.cpp" />
+		<Unit filename="Scanes/Hlavni.h" />
+		<Unit filename="Scanes/Scanes.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="screen.cpp" />
 		<Unit filename="screen.h" />
