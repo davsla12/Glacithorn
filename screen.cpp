@@ -2,16 +2,17 @@
 #include "screen.h"
 #include <fstream>
 #include <locale>
+#include <vector>
 
 int screen_y;
 int screen_x;
 int iy,ix;
 extern int x,y;
 int IDs = 1;
-std::list<Scane*> Scanes;
+std::vector<Scane*> Scanes;
 //long long update = 0;
 
-int init_screen(){
+int screen_init(){
     initscr();
     noecho();
     curs_set(0);
@@ -23,10 +24,17 @@ int init_screen(){
     setlocale(LC_ALL, "");
 
     start_color();
-    init_pair(1,COLOR_YELLOW,COLOR_BLACK);
-    init_pair(3,COLOR_BLUE,COLOR_BLACK);
+    init_pair(1,COLOR_RED,COLOR_BLACK);
+    init_pair(2,COLOR_GREEN,COLOR_BLACK);
+    init_pair(3,COLOR_YELLOW,COLOR_BLACK);
+    init_pair(4,COLOR_BLACK,COLOR_RED);
+    init_pair(5,COLOR_BLACK,COLOR_GREEN);
 
     return 0;
+}
+
+void screen_delete(){
+    endwin();
 }
 
 void CreateWin(Scane* scane,int rows,int collums,int y,int x){
@@ -55,8 +63,18 @@ int GetSizex(int id){
 
 int AddScane(Scane* add){
     add->ID = IDs;
-    Scanes.push_front(add);
+    Scanes.push_back(add);
     return IDs++;
+}
+
+int RmScane(int ID){
+    for (int i = 0;i < Scanes.size();i++){
+        if (Scanes[i]->ID == ID){
+            Scanes.erase(Scanes.begin()+ID);
+            return 0;
+        }
+    }
+    return -1;
 }
 
 int SInput(){

@@ -3,9 +3,9 @@
 
 using namespace std;
 
-int main()
-{
-    init_screen();
-    cout << "Hello world!" << endl;
+int main(){
+    screen_init();
+
+    screen_delete();
     return 0;
 }
