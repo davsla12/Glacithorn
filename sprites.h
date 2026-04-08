@@ -2,13 +2,6 @@
 #define SPRITES_H
 #include <iostream>
 
-enum direction_type {
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN
-};
-
 struct sprite {
     int y = 2;
     int x = 7;
@@ -18,12 +11,5 @@ struct sprite {
     std::string mask = "{}";
 
 };
-
-struct player {
-    sprite sp;
-    direction_type direction = DOWN;
-};
-
-extern player head;
 
 #endif

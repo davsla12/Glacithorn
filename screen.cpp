@@ -1,16 +1,14 @@
 #include <ncurses.h>
 #include "screen.h"
-#include "main.h"
 #include <fstream>
 #include <locale>
-#include <vector>
 
 int screen_y;
 int screen_x;
 int iy,ix;
 extern int x,y;
 int IDs = 1;
-std::vector<Scane*> Scanes;
+std::list<Scane*> Scanes;
 //long long update = 0;
 
 int init_screen(){
@@ -25,11 +23,8 @@ int init_screen(){
     setlocale(LC_ALL, "");
 
     start_color();
-    init_pair(1,COLOR_RED,COLOR_BLACK);
-    init_pair(2,COLOR_GREEN,COLOR_BLACK);
-    init_pair(3,COLOR_YELLOW,COLOR_BLACK);
-    init_pair(4,COLOR_BLACK,COLOR_RED);
-    init_pair(5,COLOR_BLACK,COLOR_GREEN);
+    init_pair(1,COLOR_YELLOW,COLOR_BLACK);
+    init_pair(3,COLOR_BLUE,COLOR_BLACK);
 
     return 0;
 }
@@ -60,23 +55,12 @@ int GetSizex(int id){
 
 int AddScane(Scane* add){
     add->ID = IDs;
-    Scanes.push_back(add);
+    Scanes.push_front(add);
     return IDs++;
-}
-
-int RmScane(int ID){
-    for (int i = 0;i < Scanes.size();i++){
-        if (Scanes[i]->ID == ID){
-            Scanes.erase(Scanes.begin()+ID);
-            return 0;
-        }
-    }
-    return -1;
 }
 
 int SInput(){
     int key = getch();
-    if(key == 'q') running = false;
     for (auto &p : Scanes) {
         if(p->input != NULL)p->input(key);
     }
