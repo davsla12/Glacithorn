@@ -1,0 +1,1 @@
+int SHlavni_init();
