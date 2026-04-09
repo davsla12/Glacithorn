@@ -1,4 +1,4 @@
-#include "../screen.h"
+#include <MF/screen.h>
 Scane SHlavni;
 
 int SHlavni_init(){
