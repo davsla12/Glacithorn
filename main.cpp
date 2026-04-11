@@ -8,8 +8,9 @@ using namespace std;
 int main(){
     screen_init();
     SHlavni_init();
-    screen_update();
-    napms(1000);
+    while(Run()){
+        screen_update();
+    }
     screen_delete();
     return 0;
 }
