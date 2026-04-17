@@ -1,6 +1,6 @@
 #include "../MF/screen.h"
 #include "../MF/sprites.h"
-#include "../MF/Menu.h"
+//#include "../MF/Menu.h"
 
 Scane SHlavni;
 

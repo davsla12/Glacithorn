@@ -11,7 +11,7 @@ struct Scane{
     int rows,collums; //define max size of the window
     int pos_y,pos_x;
     int timer; //how often call main TODO
-    std::list<sprite*> sprites;
+    std::list<Sprite*> sprites;
     void (*input)(int key); //waits for input from user
     int (*main)();
     void (*render)(); //rendering somethink outside sprites
