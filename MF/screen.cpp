@@ -8,7 +8,7 @@ int screen_y;
 int screen_x;
 int iy,ix;
 extern int x,y;
-int IDs = 1;
+static int IDs = 1;
 std::vector<Scane*> Scanes;
 //long long update = 0;
 

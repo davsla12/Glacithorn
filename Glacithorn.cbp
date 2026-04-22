@@ -36,6 +36,14 @@
 		<Linker>
 			<Add library="ncurses" />
 		</Linker>
+		<Unit filename="MF/Menu.cpp" />
+		<Unit filename="MF/Menu.h" />
+		<Unit filename="MF/Random.cpp" />
+		<Unit filename="MF/Random.h" />
+		<Unit filename="MF/screen.cpp" />
+		<Unit filename="MF/screen.h" />
+		<Unit filename="MF/sprites.cpp" />
+		<Unit filename="MF/sprites.h" />
 		<Unit filename="Scanes/Hlavni.cpp" />
 		<Unit filename="Scanes/Hlavni.h" />
 		<Unit filename="Scanes/Scanes.h" />
