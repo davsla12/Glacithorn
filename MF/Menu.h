@@ -15,4 +15,5 @@ int x;
 
 void menu_create(Menu*);
 void menu_render(Menu menu,Scane scane);
+void menu_input(Menu* menu,int key);
 #endif

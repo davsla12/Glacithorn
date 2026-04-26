@@ -10,6 +10,7 @@ add_executable(Glacithorn
     MF/screen.cpp
     MF/Random.cpp
     MF/sprites.cpp
+    MF/Menu.cpp
     Scanes/Hlavni.cpp
 )
 
