@@ -7,11 +7,8 @@ find_package(Curses REQUIRED)
 
 add_executable(Glacithorn
     main.cpp
-    MF/screen.cpp
-    MF/Random.cpp
-    MF/sprites.cpp
-    MF/Menu.cpp
-    Scanes/Hlavni.cpp
+    screen.cpp
+    menu.cpp
 )
 
 target_include_directories(Glacithorn PRIVATE
