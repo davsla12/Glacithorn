@@ -6,6 +6,11 @@
 #include <string>
 #include <vector>
 
-int menu_quick(WINDOW* window,int y,int x,std::vector<std::string> options);
+struct menu_data_t {
+    std::string key;
+    std::vector<std::string> values;
+};
+
+int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options);
 
 #endif
