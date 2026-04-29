@@ -7,6 +7,10 @@
 int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options){
   bool selected = false;
   int pos = 0;
+  size_t offsetX = 0;
+  for(int i = 0;i<options.size();i++){
+    offsetX = std::max(options[i].key.size(),offsetX);
+  }
   while(!selected){
     clear();
     refresh();
@@ -15,7 +19,7 @@ int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options){
       mvwprintw(window,y+i,x,"%s",options[i].key.c_str());
       if(i==pos)wattroff(window,A_REVERSE);
       if(i==pos && options[i].values.size()){
-        mvwprintw(window,y+i,x+options[i].key.size()+1,options[i].values[0].c_str());
+        mvwprintw(window,y+i,x + offsetX + 1,"%s",options[i].values[0].c_str());
       }
     }
     int key = getch();

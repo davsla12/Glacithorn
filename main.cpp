@@ -9,7 +9,7 @@ int main(){
   screen_init();
 
   do{
-    volba = menu_quick(stdscr,2,2,{{"Idk",{"Quit"}},{"treti"},{"Idk2"}});
+    volba = menu_quick(stdscr,2,2,{{"Idk",{"Quit"}},{"treti"},{"Idk2",{"Baf"}}});
   }while(volba != 0);
   screen_delete();
   std::cout << volba << std::endl;
