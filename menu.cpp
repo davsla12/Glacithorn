@@ -13,14 +13,15 @@ int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options){
   }
   while(!selected){
     wclear(window);
-    wrefresh(window);
     for(int i = 0;i < options.size();i++){
       if(i==pos)wattron(window,A_REVERSE);
       mvwprintw(window,y+i,x,"%s",options[i].key.c_str());
       if(i==pos)wattroff(window,A_REVERSE);
       if(i==pos && options[i].values.size()){
-        mvwprintw(window,y,x + offsetX + 2,"%s",options[i].values[0].c_str());
+        for(size_t ii = 0;ii < options[i].values.size();ii++)
+          mvwprintw(window,y+ii,x + offsetX + 2,"%s",options[i].values[ii].c_str());
       }
+    wrefresh(window);
     }
     int key = getch();
 
