@@ -3,6 +3,7 @@
 #include "./sprites.h"
 #include "./Log.h"
 #include "./player.h"
+#include "./board.h"
 
 #include <iostream>
 
@@ -12,6 +13,7 @@ int screen_h;
 int screen_w;
 
 Hrac player;
+Enemy nepriteltmp;
 
 int main(){
   screen_init();
@@ -35,35 +37,44 @@ int main(){
         "MANA: 40"}}
     });
 
-  Log("Tvoje volba %d",volba);
+  switch(volba){
 
-    potvrzeni = menu_quick(menu,2,2,{
+    case 0:
+      player.name = "Bojovnik";
+      player.HP_max = 50;
+      player.MANA_max = 25;
+      break;
+    case 1:
+      player.name = "Paladin";
+      player.HP_max = 70;
+      player.MANA_max = 20;
+      break;
+    case 2:
+      player.name = "Mag";
+      player.HP_max = 40;
+      player.MANA_max = 40;
+
+  }
+
+  Log("Tvoje volba %s",player.name.c_str());
+
+  potvrzeni = menu_quick(menu,2,2,{
       {"Ano",{"Hura do bitvy"}},
       {"Ne",{"Co bude lepsi"}}
     });
   }while(potvrzeni);
 
-  switch(volba){
-
-  case 0:
-    player.name = "Bojovnik";
-    player.HP_max = 50;
-    player.MANA_max = 25;
-    break;
-  case 1:
-    player.name = "Paladin";
-    player.HP_max = 70;
-    player.MANA_max = 20;
-    break;
-  case 2:
-    player.name = "Mag";
-    player.HP_max = 40;
-    player.MANA_max = 40;
-
-  }
   player.HP_current = player.HP_max;
   player.MANA_current = player.MANA_max;
-  player.damage = damage_basic;
+  player.attack = attack;
+
+  nepriteltmp.HP_current = 10;
+
+  Boj(player,nepriteltmp);
+
+  menu_quick(menu,2,2,{
+      {"Konec"}
+    });
 
   screen_delete();
   std::cout << volba << std::endl;

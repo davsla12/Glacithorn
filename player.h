@@ -2,6 +2,6 @@
 #define PLAYER_H
 #include "./sprites.h"
 
-int damage_basic(Hrac hrac,int damage);
+int attack(Hrac& player);
 
 #endif

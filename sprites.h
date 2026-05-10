@@ -12,7 +12,7 @@ struct Hrac{
   int money = 0;
   float level = 0;
   float experience = 0;
-  int (*damage)(Hrac hrac,int damage);
+  int (*attack)(Hrac&);
 };
 
 struct Enemy{
@@ -22,7 +22,7 @@ struct Enemy{
   int MANA_max;
   int MANA_current;
   float level = 0;
-  int (*damage)(Enemy boss,int damage);
+  int (*attack)();
   int (*money_drop)(Enemy boss);
   float (*xp_drop)(Enemy boss);
 };

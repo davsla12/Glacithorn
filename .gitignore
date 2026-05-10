@@ -2,3 +2,5 @@
 /obj/*
 /build/*
 *.swp
+*.depend
+*.layout

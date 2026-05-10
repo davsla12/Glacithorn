@@ -8,6 +8,7 @@ WINDOW* window;
 std::vector<std::string> log_buffer;
 
 void SLog_render(){
+  wclear(window);
   int screen_y = getmaxy(window)-2;
   for(int y = log_buffer.size()-1;y >= 0;y--){
     mvwprintw(window,(screen_y-log_buffer.size())+y+1,1,"%s",log_buffer[y].c_str());
