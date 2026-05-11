@@ -12,6 +12,7 @@ add_executable(Glacithorn
     menu.cpp
     player.cpp
     Log.cpp
+    board.cpp
 )
 
 target_include_directories(Glacithorn PRIVATE
