@@ -21,9 +21,10 @@ int main(){
   WINDOW* menu = subwin(stdscr,screen_h-10,screen_w,10,0);
   WINDOW* log = subwin(stdscr,10,screen_w,0,0);
   SLog_init(log);
+  menu_init(menu);
 
   do{
-    volba = menu_quick(menu,2,2,{
+    volba = menu_quick(2,2,{
       {"Bojovnik",{
         "HP: 50",
         "MANA: 25"}},
@@ -58,7 +59,7 @@ int main(){
 
   Log("Tvoje volba %s",player.name.c_str());
 
-  potvrzeni = menu_quick(menu,2,2,{
+  potvrzeni = menu_quick(2,2,{
       {"Ano",{"Hura do bitvy"}},
       {"Ne",{"Co bude lepsi"}}
     });
@@ -68,11 +69,11 @@ int main(){
   player.MANA_current = player.MANA_max;
   player.attack = attack;
 
-  nepriteltmp.HP_current = 10;
+  nepriteltmp.HP_current = 25;
 
-  Boj(player,nepriteltmp);
+  if(!Boj(player,nepriteltmp))Log("Zemrel jsi");
 
-  menu_quick(menu,2,2,{
+  menu_quick(2,2,{
       {"Konec"}
     });
 

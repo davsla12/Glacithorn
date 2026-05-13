@@ -4,7 +4,9 @@
 
 #include "menu.h"
 
-int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options){
+static WINDOW* window;
+
+int menu_quick(int y,int x,std::vector<menu_data_t> options){
   bool selected = false;
   int pos = 0;
   size_t offsetX = 0;
@@ -30,4 +32,8 @@ int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options){
     else if(key == '\n') selected = true;
   }
   return pos;
+}
+
+void menu_init(WINDOW* okno){
+window = okno;
 }

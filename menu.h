@@ -11,6 +11,7 @@ struct menu_data_t {
     std::vector<std::string> values;
 };
 
-int menu_quick(WINDOW* window,int y,int x,std::vector<menu_data_t> options);
+int menu_quick(int y,int x,std::vector<menu_data_t> options);
+void menu_init(WINDOW* okno);
 
 #endif

@@ -4,7 +4,7 @@
 #include <string>
 #include "Log.h"
 
-WINDOW* window;
+static WINDOW* window;
 std::vector<std::string> log_buffer;
 
 void SLog_render(){
