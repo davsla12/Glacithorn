@@ -38,6 +38,8 @@
 		</Linker>
 		<Unit filename="Log.cpp" />
 		<Unit filename="Log.h" />
+		<Unit filename="Random.cpp" />
+		<Unit filename="Random.h" />
 		<Unit filename="board.cpp" />
 		<Unit filename="board.h" />
 		<Unit filename="classes.cpp" />

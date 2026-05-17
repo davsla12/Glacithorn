@@ -4,6 +4,7 @@
 #include "./Log.h"
 #include "./player.h"
 #include "./board.h"
+#include "./Random.h"
 
 #include <iostream>
 
@@ -17,6 +18,7 @@ Enemy nepriteltmp;
 
 int main(){
   screen_init();
+  init_random();
   getmaxyx(stdscr,screen_h,screen_w);
   WINDOW* menu = subwin(stdscr,screen_h-10,screen_w,10,0);
   WINDOW* log = subwin(stdscr,10,screen_w,0,0);
@@ -69,7 +71,7 @@ int main(){
   player.MANA_current = player.MANA_max;
   player.attack = attack;
 
-  nepriteltmp.HP_current = 25;
+  nepriteltmp.HP_current = randomInt(20,30);
 
   if(!Boj(player,nepriteltmp))Log("Zemrel jsi");
 

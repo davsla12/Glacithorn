@@ -8,6 +8,7 @@ bool Boj(Hrac &player,Enemy nepritel){
   do{
     int dmg = player.attack(player);
     nepritel.HP_current -= dmg;
+    Log("Aktualni HP nepritele: %d",nepritel.HP_current);
     player.HP_current--;
 
     round++;
