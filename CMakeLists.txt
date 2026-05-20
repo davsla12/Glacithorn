@@ -13,6 +13,9 @@ add_executable(Glacithorn
     player.cpp
     Log.cpp
     board.cpp
+    village.cpp
+    nepritel.cpp
+    Random.cpp
 )
 
 target_include_directories(Glacithorn PRIVATE
