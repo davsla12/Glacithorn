@@ -22,8 +22,8 @@ struct Enemy{
   int MANA_max;
   int MANA_current;
   float level = 0;
-  int (*attack)();
-  int (*money_drop)(Enemy boss);
+  int (*attack)(Enemy&,int round);
+  int (*money_drop)();
   float (*xp_drop)(Enemy boss);
 };
 

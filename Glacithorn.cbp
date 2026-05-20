@@ -48,12 +48,16 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
+		<Unit filename="nepritel.cpp" />
+		<Unit filename="nepritel.h" />
 		<Unit filename="player.cpp" />
 		<Unit filename="player.h" />
 		<Unit filename="screen.cpp" />
 		<Unit filename="screen.h" />
 		<Unit filename="sprites.cpp" />
 		<Unit filename="sprites.h" />
+		<Unit filename="village.cpp" />
+		<Unit filename="village.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

@@ -3,7 +3,9 @@
 #include "./sprites.h"
 #include "./Log.h"
 #include "./player.h"
+#include "nepritel.h"
 #include "./board.h"
+#include "village.h"
 #include "./Random.h"
 
 #include <iostream>
@@ -20,8 +22,8 @@ int main(){
   screen_init();
   init_random();
   getmaxyx(stdscr,screen_h,screen_w);
-  WINDOW* menu = subwin(stdscr,screen_h-10,screen_w,10,0);
-  WINDOW* log = subwin(stdscr,10,screen_w,0,0);
+  WINDOW* menu = subwin(stdscr,10,screen_w,screen_h-10,0);
+  WINDOW* log = subwin(stdscr,screen_h-10,screen_w,0,0);
   SLog_init(log);
   menu_init(menu);
 
@@ -71,14 +73,29 @@ int main(){
   player.MANA_current = player.MANA_max;
   player.attack = attack;
 
-  nepriteltmp.HP_current = randomInt(20,30);
+  nepriteltmp = GetEnemy(0);
+  if(!Boj(player,nepriteltmp)){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+  if(!Boj(player,nepriteltmp)){
+    Log("Zemrel jsi");
+    goto konec;
+  }
 
-  if(!Boj(player,nepriteltmp))Log("Zemrel jsi");
+  Village(player);
 
+  nepriteltmp = GetEnemy(1);
+  if(!Boj(player,nepriteltmp)){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  konec:
   menu_quick(2,2,{
       {"Konec"}
     });
-
   screen_delete();
-  std::cout << volba << std::endl;
+  std::cout << "tvoje mana " << player.MANA_current << std::endl;
+  std::cout << "tvoje money " << player.money << std::endl;
 }

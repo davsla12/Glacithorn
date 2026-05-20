@@ -25,7 +25,7 @@ int attack(Hrac& player){
     if(player.MANA_current < 1)Log("Nemas dost many");
     else{
       player.MANA_current -=1;
-      player.HP_current += 2;
+      player.HP_current += 5;
     }
 
   }
