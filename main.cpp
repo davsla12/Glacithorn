@@ -7,6 +7,7 @@
 #include "./board.h"
 #include "village.h"
 #include "./Random.h"
+#include "stats.h"
 
 #include <iostream>
 
@@ -22,10 +23,12 @@ int main(){
   screen_init();
   init_random();
   getmaxyx(stdscr,screen_h,screen_w);
-  WINDOW* menu = subwin(stdscr,10,screen_w,screen_h-10,0);
+  WINDOW* menu = subwin(stdscr,10,screen_w/2,screen_h-10,0);
   WINDOW* log = subwin(stdscr,screen_h-10,screen_w,0,0);
+  WINDOW* stats = subwin(stdscr,10,screen_w/2,screen_h-10,screen_w/2);
   SLog_init(log);
   menu_init(menu);
+  Stats_init(stats);
 
   do{
     volba = menu_quick(2,2,{

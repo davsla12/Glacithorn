@@ -1,10 +1,12 @@
 #include "./board.h"
 #include "./Log.h"
+#include "stats.h"
 
 int round = 0;
 bool playerisonhalfround = true;
 
 bool Boj(Hrac &player,Enemy nepritel){
+  Stats_addEnemy(&nepritel);
   round = 0;
   Log("vitej %s ted se utkas proti %s",player.name.c_str(),nepritel.name.c_str());
   do{
@@ -12,6 +14,7 @@ bool Boj(Hrac &player,Enemy nepritel){
     nepritel.HP_current -= dmg;
     if(nepritel.HP_current > 0){
       Log("Aktualni HP nepritele: %d",nepritel.HP_current);
+      Stats_update();
       dmg = nepritel.attack(nepritel,round);
       player.HP_current -= dmg;
       Log("Nepritel uderil %dhp",dmg);

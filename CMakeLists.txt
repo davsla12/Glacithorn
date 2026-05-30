@@ -16,6 +16,7 @@ add_executable(Glacithorn
     village.cpp
     nepritel.cpp
     Random.cpp
+    stats.cpp
 )
 
 target_include_directories(Glacithorn PRIVATE
