@@ -1,12 +1,13 @@
 #include "sprites.h"
 #include "Random.h"
+#include "stats.h"
 
-int Attack0(Enemy& nepritel,int round){
+int Attack0(Enemy& nepritel){
   return 2;
 }
 
-int Attack1(Enemy& nepritel,int round){
-  return round/5+1;
+int Attack1(Enemy& nepritel){
+  return Stats_roundGet()/5+1;
 }
 
 int Money0(){

@@ -16,13 +16,14 @@ struct Hrac{
 };
 
 struct Enemy{
+  int id;
   std::string name;
   int HP_max;
   int HP_current;
   int MANA_max;
   int MANA_current;
   float level = 0;
-  int (*attack)(Enemy&,int round);
+  int (*attack)(Enemy&);
   int (*money_drop)();
   float (*xp_drop)(Enemy boss);
 };

@@ -7,9 +7,11 @@
 
 int Stats_init(WINDOW* window);
 void Stats_update();
-int Stats_roundGet();
-void Stats_roundAdd();
+int Stats_roundGet();//returns round
+void Stats_roundAdd();//adds 1
+void Stats_roundSet();//resets to 0
 
-void Stats_addEnemy(Enemy* nepritel);
+int Stats_addEnemy(Enemy* nepritel);
+bool Stats_remEnemy(int id);
 
 #endif
