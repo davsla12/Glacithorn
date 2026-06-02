@@ -9,13 +9,18 @@ static int IDs = 0;
 static int tah = 0;
 
 std::vector<Enemy*> nepritele;
-static Hrac player;
+static Hrac* player;
 
 void progreshow(int y,int x,int value,int maxvalue){
-  int prog = 10*value/maxvalue
+  int prog = 15*value/maxvalue;
+  mvwprintw(window,y,x,"[");
+  x++;
   for(int i = 0;i<prog;i++){
-
+    wattron(window,A_REVERSE);
+    mvwprintw(window,y,x+i," ");
+    wattroff(window,A_REVERSE);
   }
+  mvwprintw(window,y,x+15,"]");
 }
 
 int Stats_init(WINDOW* okno){
@@ -51,15 +56,17 @@ bool Stats_remEnemy(int id){
   return false;
 }
 
+void Stats_setPlayer(Hrac* hrac){
+  player = hrac;
+}
+
 void Stats_update(){
   wclear(window);
   mvwprintw(window,0,0,"Tah: %d",tah);
+  mvwprintw(window,1,0,"Zlaťáky: %d",player->money);
   for(size_t i = 0;i<nepritele.size();i++){
-    int maxx = getmaxx(window);
     mvwprintw(window, i+4, 0, "[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current);
-    wattron(window,A_REVERSE);
-    mvwprintw(window,i+4,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),"G");
-    wattroff(window,A_REVERSE);
+    progreshow(i+4,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),nepritele[i]->HP_current,nepritele[i]->HP_max);
   }
   wrefresh(window);
 }

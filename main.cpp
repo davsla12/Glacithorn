@@ -29,6 +29,8 @@ int main(){
   SLog_init(log);
   menu_init(menu);
   Stats_init(stats);
+  Stats_setPlayer(&player);
+  Stats_update();
 
   do{
     volba = menu_quick(2,2,{
