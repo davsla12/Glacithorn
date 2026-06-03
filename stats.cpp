@@ -46,6 +46,10 @@ nepritele.push_back(nepritel);
 return nepritel->id;
 }
 
+void Stats_clrEnemy(){
+  nepritele.clear();
+}
+
 bool Stats_remEnemy(int id){
   for(int i = 0;i<nepritele.size();i++){
     if(id == nepritele[i]->id){
@@ -64,6 +68,7 @@ void Stats_update(){
   wclear(window);
   mvwprintw(window,0,0,"Tah: %d",tah);
   mvwprintw(window,1,0,"Zlaťáky: %d",player->money);
+  mvwprintw(window,2,0,"Level: %f",player->level);
   for(size_t i = 0;i<nepritele.size();i++){
     mvwprintw(window, i+4, 0, "[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current);
     progreshow(i+4,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),nepritele[i]->HP_current,nepritele[i]->HP_max);

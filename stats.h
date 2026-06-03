@@ -12,6 +12,7 @@ void Stats_roundAdd();//adds 1
 void Stats_roundSet();//resets to 0
 
 int Stats_addEnemy(Enemy* nepritel);
+void Stats_clrEnemy();
 bool Stats_remEnemy(int id);
 
 void Stats_setPlayer(Hrac* hrac);

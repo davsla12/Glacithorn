@@ -36,15 +36,15 @@ int main(){
     volba = menu_quick(2,2,{
       {"Bojovnik",{
         "HP: 50",
-        "MANA: 25"}},
+        "MANA: 50"}},
 
       {"Paladin",{
         "HP: 70",
-        "MANA: 20"}},
+        "MANA: 40"}},
 
       {"Mag",{
         "HP: 40",
-        "MANA: 40"}}
+        "MANA: 100"}}
     });
 
   switch(volba){
@@ -52,17 +52,17 @@ int main(){
     case 0:
       player.name = "Bojovnik";
       player.HP_max = 50;
-      player.MANA_max = 25;
+      player.MANA_max = 50;
       break;
     case 1:
       player.name = "Paladin";
       player.HP_max = 70;
-      player.MANA_max = 20;
+      player.MANA_max = 40;
       break;
     case 2:
       player.name = "Mag";
       player.HP_max = 40;
-      player.MANA_max = 40;
+      player.MANA_max = 100;
 
   }
 
@@ -79,11 +79,11 @@ int main(){
   player.attack = attack;
 
   nepriteltmp = GetEnemy(0);
-  if(!Boj(player,nepriteltmp)){
+  if(!Boj(player,{nepriteltmp,GetEnemy(0)})){
     Log("Zemrel jsi");
     goto konec;
   }
-  if(!Boj(player,nepriteltmp)){
+  if(!Boj(player,{nepriteltmp})){
     Log("Zemrel jsi");
     goto konec;
   }
@@ -91,7 +91,7 @@ int main(){
   Village(player);
 
   nepriteltmp = GetEnemy(1);
-  if(!Boj(player,nepriteltmp)){
+  if(!Boj(player,{nepriteltmp})){
     Log("Zemrel jsi");
     goto konec;
   }

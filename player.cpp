@@ -15,8 +15,10 @@ int attack(Hrac& player){
   switch(volba){
   case 0:
     if(player.MANA_current < 2)Log("Nemas dost many");
-    else{player.MANA_current -= 2;
-    return 2;}
+    else{
+      player.MANA_current -= 2;
+      return player.dmg*player.level;
+    }
     break;
   case 1:
     player.MANA_current += 3;

@@ -10,8 +10,8 @@ struct Hrac{
   int MANA_max;
   int MANA_current;
   int money = 0;
-  float level = 0;
-  float experience = 0;
+  int dmg = 2;
+  float level = 1;
   int (*attack)(Hrac&);
 };
 

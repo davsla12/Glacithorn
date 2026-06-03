@@ -1,6 +1,7 @@
 #include "sprites.h"
 #include "Random.h"
 #include "stats.h"
+#include "Log.h"
 
 int Attack0(Enemy& nepritel){
   return 2;
@@ -8,6 +9,14 @@ int Attack0(Enemy& nepritel){
 
 int Attack1(Enemy& nepritel){
   return Stats_roundGet()/5+1;
+}
+
+float Xp0(Enemy self){
+  return randomInt(10,20)/10;
+}
+
+float Xp1(Enemy self){
+  return self.HP_max/15;
 }
 
 int Money0(){
@@ -25,12 +34,14 @@ Enemy GetEnemy(int jaka){
       retval.attack = Attack0;
       retval.HP_max = randomInt(20,30);
       retval.name = "Mys";
+      retval.xp_drop = Xp0;
       retval.money_drop = Money0;
       break;
     case 1:
       retval.attack = Attack1;
       retval.HP_max = randomInt(20,30);
       retval.name = "Skret";
+      retval.xp_drop = Xp1;
       retval.money_drop = Money1;
 
   }
