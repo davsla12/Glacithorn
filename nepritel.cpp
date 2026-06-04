@@ -4,7 +4,7 @@
 #include "Log.h"
 
 int Attack0(Enemy& nepritel){
-  return 2;
+  return 1;
 }
 
 int Attack1(Enemy& nepritel){
@@ -12,11 +12,11 @@ int Attack1(Enemy& nepritel){
 }
 
 float Xp0(Enemy self){
-  return randomInt(10,20)/10;
+  return (float)randomInt(1,7)/10;
 }
 
 float Xp1(Enemy self){
-  return self.HP_max/15;
+  return (float)self.HP_max/15;
 }
 
 int Money0(){
@@ -39,7 +39,7 @@ Enemy GetEnemy(int jaka){
       break;
     case 1:
       retval.attack = Attack1;
-      retval.HP_max = randomInt(20,30);
+      retval.HP_max = randomInt(40,60);
       retval.name = "Skret";
       retval.xp_drop = Xp1;
       retval.money_drop = Money1;

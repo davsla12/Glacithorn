@@ -2,14 +2,16 @@
 #include "./sprites.h"
 #include "menu.h"
 #include "./Log.h"
+#include "stats.h"
 #include <string>
 
 int attack(Hrac& player){
-  int volba = menu_quick(2,2,{
-  {"Utok",},
-  {"Mana",{"Mana: " + std::to_string(player.MANA_current)}},
-  {"Heal",{"HP: " + std::to_string(player.HP_current)}}
-  });
+  std::vector<menu_data_t> menu = {
+    {"Utok",},
+    {"Mana",}
+  };
+  if(player.name == "Mag")menu.push_back({"Special",});
+  int volba = menu_quick(2,2,menu);
 
 
   switch(volba){
@@ -24,10 +26,10 @@ int attack(Hrac& player){
     player.MANA_current += 3;
     return 0;
   case 2:
-    if(player.MANA_current < 1)Log("Nemas dost many");
+    if(player.MANA_current < 5)Log("Nemas dost many");
     else{
-      player.MANA_current -=1;
-      player.HP_current += 5;
+      player.MANA_current -= 3;
+      return Stats_roundGet()/(player.HP_current/2);
     }
 
   }

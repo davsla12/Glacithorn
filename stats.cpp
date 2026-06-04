@@ -68,10 +68,17 @@ void Stats_update(){
   wclear(window);
   mvwprintw(window,0,0,"Tah: %d",tah);
   mvwprintw(window,1,0,"Zlaťáky: %d",player->money);
-  mvwprintw(window,2,0,"Level: %f",player->level);
+  mvwprintw(window,2,0,"Level: %.2f",player->level);
+
+  mvwprintw(window, 3, 0, "[Tvoje HP]%d",player->HP_current);
+  progreshow(3,snprintf(NULL,0,"[Tvoje HP]%d",player->HP_current),player->HP_current,player->HP_max);
+
+  mvwprintw(window, 4, 0, "[Tvoje MANA]%d",player->MANA_current);
+  progreshow(4,snprintf(NULL,0,"[Tvoje MANA]%d",player->MANA_current),player->MANA_current,player->MANA_max);
+
   for(size_t i = 0;i<nepritele.size();i++){
-    mvwprintw(window, i+4, 0, "[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current);
-    progreshow(i+4,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),nepritele[i]->HP_current,nepritele[i]->HP_max);
+    mvwprintw(window, i+6, 0, "[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current);
+    progreshow(i+6,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),nepritele[i]->HP_current,nepritele[i]->HP_max);
   }
   wrefresh(window);
 }

@@ -32,7 +32,7 @@ bool Boj(Hrac &player,std::vector<Enemy> nepritele){
         int money = nepritele[i].money_drop();
         player.money += money;
         float xp = nepritele[i].xp_drop(nepritele[i]);
-        Log("Za zabiti %s dostavas %fxp",nepritele[i].name.c_str(),xp);//TODO check next level
+        Log("Za zabiti %s dostavas %fxp",nepritele[i].name.c_str(),xp);
         player.level += xp;
         Log("%s dropnul %d penez",nepritele[i].name.c_str(),money);
         Stats_clrEnemy();
@@ -49,7 +49,7 @@ bool Boj(Hrac &player,std::vector<Enemy> nepritele){
     }
 
     Stats_roundAdd();
-  }while(player.HP_current >= 0 && nepritele.size() > 0);
+  }while(player.HP_current > 0 && nepritele.size() > 0);
   //Stats_remEnemy(nepritelid);
   Stats_update();
   if(player.HP_current>0)return true;

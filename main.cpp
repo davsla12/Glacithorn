@@ -30,7 +30,7 @@ int main(){
   menu_init(menu);
   Stats_init(stats);
   Stats_setPlayer(&player);
-  Stats_update();
+  //Stats_update();
 
   do{
     volba = menu_quick(2,2,{
@@ -77,6 +77,8 @@ int main(){
   player.HP_current = player.HP_max;
   player.MANA_current = player.MANA_max;
   player.attack = attack;
+
+  Stats_update();
 
   nepriteltmp = GetEnemy(0);
   if(!Boj(player,{nepriteltmp,GetEnemy(0)})){

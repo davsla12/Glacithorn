@@ -56,6 +56,8 @@
 		<Unit filename="screen.h" />
 		<Unit filename="sprites.cpp" />
 		<Unit filename="sprites.h" />
+		<Unit filename="stats.cpp" />
+		<Unit filename="stats.h" />
 		<Unit filename="village.cpp" />
 		<Unit filename="village.h" />
 		<Extensions />
