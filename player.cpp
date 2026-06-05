@@ -23,7 +23,8 @@ int attack(Hrac& player){
     }
     break;
   case 1:
-    player.MANA_current += 3;
+    if(player.MANA_max>=player.MANA_current+3)player.MANA_current += 3;
+    else Log("Vzdyt mas dost many");
     return 0;
   case 2:
     if(player.MANA_current < 5)Log("Nemas dost many");

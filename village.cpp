@@ -14,14 +14,15 @@ void Village(Hrac& player){
     int volba = menu_quick(5,5,{
       {"Zivoty +10",{"Heal","Za jeden zloty"}},
       {"Zivoty +20",{"Prida max zivoty","Za dva zloty"}},
-      {"Odejit z vesnice"}
+      {"Odejit z vesnice"},
+      {"Scam"}
     });
     switch(volba){
       case 0:
         if(player.HP_current+player.HP_max/5>player.HP_max){
           Log("Mas dost zivotu");
           break;}
-        if(player.money >= 1){
+        if(player.money < 1){
           Log("Chybi ti %d zlotych aby jsi si toto mohl doprat",player.money-1);
           break;
         }
@@ -30,7 +31,7 @@ void Village(Hrac& player){
         Log("Nyni mas %dHP",player.HP_current);
         break;
       case 1:
-        if(player.money >= 2){
+        if(player.money < 2){
           Log("Chybi ti %d zlotych aby jsi si toto mohl doprat",player.money-2);
           break;
         }
@@ -41,7 +42,9 @@ void Village(Hrac& player){
         break;
       case 2:
         goto exit;
+      case 3:
+        player.money--;
     }
-  }while(player.money);
+  }while(player.money>0);
   exit:
 }

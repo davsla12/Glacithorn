@@ -17,7 +17,6 @@ int screen_h;
 int screen_w;
 
 Hrac player;
-Enemy nepriteltmp;
 
 int main(){
   screen_init();
@@ -80,20 +79,18 @@ int main(){
 
   Stats_update();
 
-  nepriteltmp = GetEnemy(0);
-  if(!Boj(player,{nepriteltmp,GetEnemy(0)})){
+  if(!Boj(player,{GetEnemy(0),GetEnemy(0)})){
     Log("Zemrel jsi");
     goto konec;
   }
-  if(!Boj(player,{nepriteltmp})){
+  if(!Boj(player,{GetEnemy(0)})){
     Log("Zemrel jsi");
     goto konec;
   }
 
   Village(player);
 
-  nepriteltmp = GetEnemy(1);
-  if(!Boj(player,{nepriteltmp})){
+  if(!Boj(player,{GetEnemy(1)},true)){
     Log("Zemrel jsi");
     goto konec;
   }
