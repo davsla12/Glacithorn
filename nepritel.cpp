@@ -51,7 +51,7 @@ Enemy GetEnemy(int jaka){
       break;
     case 1:
       retval.attack = Attack1;
-      retval.HP_max = randomInt(40,50);
+      retval.HP_max = randomInt(40,70);
       retval.name = "Skret";
       retval.xp_drop = Xp1;
       retval.money_drop = Money1;
