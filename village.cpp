@@ -19,14 +19,14 @@ void Village(Hrac& player){
     });
     switch(volba){
       case 0:
-        if(player.HP_current+player.HP_max/5>player.HP_max){
+        if(player.HP_current+10 > player.HP_max){
           Log("Mas dost zivotu");
           break;}
         if(player.money < 1){
           Log("Chybi ti %d zlotych aby jsi si toto mohl doprat",player.money-1);
           break;
         }
-        player.HP_current += player.HP_max/5;
+        player.HP_current += 10;
         player.money -= 1;
         Log("Nyni mas %dHP",player.HP_current);
         break;

@@ -52,6 +52,7 @@ int main(){
       player.name = "Bojovnik";
       player.HP_max = 50;
       player.MANA_max = 50;
+      player.dmg = 3;
       break;
     case 1:
       player.name = "Paladin";
@@ -83,14 +84,67 @@ int main(){
     Log("Zemrel jsi");
     goto konec;
   }
+
+  Village(player);
+
   if(!Boj(player,{GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  if(!Boj(player,{GetEnemy(1)},true)){
     Log("Zemrel jsi");
     goto konec;
   }
 
   Village(player);
 
-  if(!Boj(player,{GetEnemy(1)},true)){
+  if(!Boj(player,{GetEnemy(0),GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  Village(player);
+
+  if(!Boj(player,{GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  if(!Boj(player,{GetEnemy(0),GetEnemy(0),GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  Village(player);
+
+  if(!Boj(player,{GetEnemy(0),GetEnemy(0),GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  Village(player);
+
+  if(!Boj(player,{GetEnemy(0),GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  if(!Boj(player,{GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+
+  if(!Boj(player,{GetEnemy(0)})){
+    Log("Zemrel jsi");
+    goto konec;
+  }
+  Log(" ");
+  Log("---POZOR Glacithorn---");
+  Log(" ");
+  Village(player);
+
+  if(!Boj(player,{GetEnemy(2)})){
     Log("Zemrel jsi");
     goto konec;
   }

@@ -16,5 +16,9 @@ void Stats_clrEnemy();
 bool Stats_remEnemy(int id);
 
 void Stats_setPlayer(Hrac* hrac);
+Hrac* Stats_getPlayer();
+
+void Stats_adSet(bool value);//AreaDamage
+bool Stats_adGet();
 
 #endif

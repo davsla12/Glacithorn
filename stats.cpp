@@ -8,6 +8,8 @@ static WINDOW* window;
 static int IDs = 0;
 static int tah = 0;
 
+bool AreaDamage = false;
+
 std::vector<Enemy*> nepritele;
 static Hrac* player;
 
@@ -64,6 +66,10 @@ void Stats_setPlayer(Hrac* hrac){
   player = hrac;
 }
 
+Hrac* Stats_getPlayer(){
+  return player;
+}
+
 void Stats_update(){
   wclear(window);
   mvwprintw(window,0,0,"Tah: %d",tah);
@@ -81,4 +87,12 @@ void Stats_update(){
     progreshow(i+6,snprintf(NULL,0,"[%s]%d",nepritele[i]->name.c_str(), nepritele[i]->HP_current),nepritele[i]->HP_current,nepritele[i]->HP_max);
   }
   wrefresh(window);
+}
+
+void Stats_adSet(bool value){
+  AreaDamage = value;
+  Log("adSet");
+}
+bool Stats_adGet(){
+  return AreaDamage;
 }

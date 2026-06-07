@@ -11,12 +11,20 @@ int Attack1(Enemy& nepritel){
   return Stats_roundGet()/5+1;
 }
 
+int Attack2(Enemy& self){
+  return Stats_roundGet()*0.7;
+}
+
 float Xp0(Enemy self){
-  return (float)randomInt(1,7)/10;
+  return (float)randomInt(1,5)/10;
 }
 
 float Xp1(Enemy self){
   return (float)self.HP_max/15;
+}
+
+float Xp2(Enemy self){
+  return 99999999999999999999;
 }
 
 int Money0(){
@@ -27,24 +35,37 @@ int Money1(){
 return randomInt(1,2);
 }
 
+int Money2(){
+return -999;
+}
+
 Enemy GetEnemy(int jaka){
   Enemy retval;
   switch(jaka){
     case 0:
       retval.attack = Attack0;
-      retval.HP_max = randomInt(20,30);
+      retval.HP_max = randomInt(20,30)*Stats_getPlayer()->level*0.6;
       retval.name = "Mys";
       retval.xp_drop = Xp0;
       retval.money_drop = Money0;
       break;
     case 1:
       retval.attack = Attack1;
-      retval.HP_max = randomInt(40,60);
+      retval.HP_max = randomInt(40,50);
       retval.name = "Skret";
       retval.xp_drop = Xp1;
       retval.money_drop = Money1;
+      break;
+    case 2:
+      retval.attack = Attack2;
+      retval.HP_max = randomInt(300,450);
+      retval.name = "Glacithorn";
+      retval.xp_drop = Xp2;
+      retval.money_drop = Money2;
+      break;
 
   }
   retval.HP_current = retval.HP_max;
+  retval.id = jaka;
   return retval;
 }

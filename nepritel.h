@@ -5,4 +5,6 @@
 
 Enemy GetEnemy(int jaka);
 
+#define GLACITHORN_ID 2
+
 #endif
