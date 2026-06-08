@@ -73,7 +73,7 @@ Hrac* Stats_getPlayer(){
 void Stats_update(){
   wclear(window);
   mvwprintw(window,0,0,"Tah: %d",tah);
-  mvwprintw(window,1,0,"Zlaťáky: %d",player->money);
+  mvwprintw(window,1,0,"Zloty: %d",player->money);
   mvwprintw(window,2,0,"Level: %.2f",player->level);
 
   mvwprintw(window, 3, 0, "[Tvoje HP]%d",player->HP_current);
@@ -91,7 +91,6 @@ void Stats_update(){
 
 void Stats_adSet(bool value){
   AreaDamage = value;
-  Log("adSet");
 }
 bool Stats_adGet(){
   return AreaDamage;

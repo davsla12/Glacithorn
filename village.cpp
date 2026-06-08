@@ -5,7 +5,7 @@
 
 void Village(Hrac& player){
   Log("");
-  Log("vítej ve vesnici %s",player.name.c_str());
+  Log("vitej ve vesnici %s",player.name.c_str());
   Log("Za tvuj level dostanes od nas %d zlotych",(int)player.level);
   player.money += player.level;
   do{
